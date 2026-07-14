@@ -68,7 +68,9 @@ function Create() {
     const cleaned = locationInput.trim().slice(0, 120);
     if (!cleaned) return;
     setLocationSuggestions((current) =>
-      current.some((x) => x.toLowerCase() === cleaned.toLowerCase()) ? current : [...current, cleaned],
+      current.some((x) => x.toLowerCase() === cleaned.toLowerCase())
+        ? current
+        : [...current, cleaned],
     );
     setLocationInput("");
   };
@@ -109,7 +111,9 @@ function Create() {
     try {
       localStorage.setItem(`meetly:creator:${code}`, token);
       localStorage.setItem(`meetly:name:${code}`, name.trim());
-    } catch {}
+    } catch {
+      void 0;
+    }
     toast.success("Event created!");
     navigate({ to: "/event/$code", params: { code } });
   }

@@ -4,7 +4,7 @@ export const ALL_DAY_DURATION = -1;
 export interface Slot {
   date: DateOption;
   start: number; // minute of day
-  end: number;   // minute of day (exclusive)
+  end: number; // minute of day (exclusive)
 }
 
 export function generateCode(): string {

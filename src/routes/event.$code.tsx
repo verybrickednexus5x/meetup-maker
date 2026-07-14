@@ -87,9 +87,7 @@ export const Route = createFileRoute("/event/$code")({
   loader: ({ context, params }) =>
     context.queryClient.ensureQueryData(eventQuery(params.code.toUpperCase())),
   component: EventPage,
-  errorComponent: ({ error }) => (
-    <ErrorState message={error.message || "Something went wrong"} />
-  ),
+  errorComponent: ({ error }) => <ErrorState message={error.message || "Something went wrong"} />,
   notFoundComponent: () => <ErrorState message="No event found for that code." />,
 });
 
@@ -139,7 +137,9 @@ function EventPage() {
     try {
       setCreatorToken(localStorage.getItem(`meetly:creator:${upper}`));
       setMyName(localStorage.getItem(`meetly:name:${upper}`) ?? "");
-    } catch {}
+    } catch {
+      void 0;
+    }
   }, [upper]);
 
   const isCreator = creatorToken === event.creator_token;
@@ -163,7 +163,7 @@ function EventPage() {
     setPreferredLocation(myResponse?.preferred_location ?? "");
     setCanSleepover(Boolean(myResponse?.can_sleepover));
     setLeaveByMinute(myResponse?.leave_by_minute ?? 9 * 60);
-  }, [myResponse?.id]);
+  }, [myResponse]);
 
   const durationVoteCounts = useMemo(() => {
     const counts = new Map<number, number>();
@@ -212,7 +212,9 @@ function EventPage() {
     }
     try {
       localStorage.setItem(`meetly:name:${upper}`, myName.trim());
-    } catch {}
+    } catch {
+      void 0;
+    }
     const payload = {
       event_id: event.id,
       name: myName.trim().slice(0, 50),
@@ -245,17 +247,13 @@ function EventPage() {
     qc.invalidateQueries({ queryKey: ["event", upper] });
   }
 
-  const shareUrl =
-    typeof window !== "undefined" ? `${window.location.origin}/event/${upper}` : "";
+  const shareUrl = typeof window !== "undefined" ? `${window.location.origin}/event/${upper}` : "";
   const locationVoteCounts = useMemo(() => {
     const counts = new Map<string, number>();
     for (const location of locationSuggestions) counts.set(location, 0);
     for (const response of responses) {
       if (!response.preferred_location) continue;
-      counts.set(
-        response.preferred_location,
-        (counts.get(response.preferred_location) ?? 0) + 1,
-      );
+      counts.set(response.preferred_location, (counts.get(response.preferred_location) ?? 0) + 1);
     }
     return counts;
   }, [locationSuggestions, responses]);
@@ -299,8 +297,7 @@ function EventPage() {
               <h1 className="mt-1 font-display text-4xl font-bold">{event.title}</h1>
               <p className="mt-1 text-sm text-muted-foreground">
                 Suggested duration: {durationToLabel(winningDuration)} · window{" "}
-                {minutesToLabel(event.day_start_minute)}–
-                {minutesToLabel(event.day_end_minute)}
+                {minutesToLabel(event.day_start_minute)}–{minutesToLabel(event.day_end_minute)}
               </p>
             </div>
             <div className="flex flex-col items-end gap-2">
@@ -329,9 +326,7 @@ function EventPage() {
                 </span>
               </div>
               <div className="mt-2 flex flex-wrap items-baseline gap-x-3">
-                <div className="font-display text-3xl font-bold">
-                  {formatDate(best.date)}
-                </div>
+                <div className="font-display text-3xl font-bold">{formatDate(best.date)}</div>
                 <div className="text-lg text-muted-foreground">
                   {minutesToLabel(best.start)} – {minutesToLabel(best.end)}
                 </div>
@@ -476,9 +471,7 @@ function EventPage() {
           <aside className="rounded-3xl border bg-card p-6 shadow-sm">
             <div className="flex items-center gap-2">
               <Users className="h-4 w-4 text-primary" />
-              <h2 className="font-display text-2xl font-bold">
-                Responses ({responses.length})
-              </h2>
+              <h2 className="font-display text-2xl font-bold">Responses ({responses.length})</h2>
             </div>
             {responses.length === 0 ? (
               <p className="mt-4 text-sm text-muted-foreground">
