@@ -23,7 +23,7 @@ import {
 export const Route = createFileRoute("/create")({
   head: () => ({
     meta: [
-      { title: "Create event — Meetly" },
+      { title: "Create event - Meetly" },
       { name: "description", content: "Start a new hangout and get a share code." },
     ],
   }),
@@ -297,7 +297,7 @@ function Create() {
 
       <main className="mx-auto max-w-3xl px-6 pb-20">
         <h1 className="font-display text-4xl font-bold">Create your event</h1>
-        <p className="mt-2 text-muted-foreground">Fill this in — you'll get a share code next.</p>
+        <p className="mt-2 text-muted-foreground">Fill this in - you'll get a share code next.</p>
 
         <form onSubmit={submit} className="mt-8 space-y-6 rounded-2xl border bg-card p-6 shadow-sm">
           <div className="space-y-2">
@@ -335,7 +335,7 @@ function Create() {
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Anything guests should know — what to bring, dress code, parking..."
+              placeholder="Anything guests should know - what to bring, dress code, parking..."
               maxLength={500}
               rows={3}
             />
@@ -362,7 +362,7 @@ function Create() {
             <p className="text-xs text-muted-foreground">
               {eventType === "flexible"
                 ? "Everyone adds the dates and times that work for them, and we'll find the best overlap."
-                : "Lock in one specific date and time — good for birthdays or anything that can't move."}
+                : "Lock in one specific date and time - good for birthdays or anything that can't move."}
             </p>
           </div>
 
@@ -427,7 +427,7 @@ function Create() {
                 </div>
                 <p className="text-xs text-muted-foreground">
                   Select as many as make sense (a coffee vs. a hike need very different amounts of
-                  time) — people vote on what works.
+                  time) - people vote on what works.
                 </p>
               </div>
 

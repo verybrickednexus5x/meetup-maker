@@ -96,7 +96,7 @@ function DateWindowRow({
         Add this block
       </Button>
       <p className="mt-1.5 text-xs text-muted-foreground">
-        Drag the handles, or use a shortcut, then add — you can add as many blocks as you want for
+        Drag the handles, or use a shortcut, then add - you can add as many blocks as you want for
         this date.
       </p>
     </div>
@@ -105,7 +105,7 @@ function DateWindowRow({
 
 /**
  * Lets someone pick any number of dates, then add any number of arbitrary
- * start/end time windows for each date — used both by the creator (to set
+ * start/end time windows for each date - used both by the creator (to set
  * their own availability for a flexible event) and by guests responding.
  */
 export function AvailabilityBuilder({
@@ -141,7 +141,7 @@ export function AvailabilityBuilder({
       <div>
         <Label>Which dates work? ({visibleDates.length} selected)</Label>
         <p className="mt-1 text-xs text-muted-foreground">
-          Pick dates on the calendar, then drag a slider for each — no need to tap individual time
+          Pick dates on the calendar, then drag a slider for each - no need to tap individual time
           slots. Add multiple blocks per day if you're free at different times.
         </p>
         <Calendar

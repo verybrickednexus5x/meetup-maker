@@ -80,7 +80,7 @@ function eventQuery(code: string) {
 export const Route = createFileRoute("/event/$code")({
   head: ({ params }) => ({
     meta: [
-      { title: `Event ${params.code} — Meetly` },
+      { title: `Event ${params.code} - Meetly` },
       { name: "description", content: "Add your availability for this hangout." },
       { name: "robots", content: "noindex" },
     ],
@@ -407,7 +407,7 @@ function EventPage() {
             <p className="mt-1 text-sm text-muted-foreground">
               {isFixed
                 ? "Let the host know you're coming."
-                : `Add dates and time windows you're free — as many as you want. We'll find what overlaps.`}
+                : `Add dates and time windows you're free - as many as you want. We'll find what overlaps.`}
             </p>
 
             <div className="mt-4 space-y-2">
