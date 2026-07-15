@@ -259,8 +259,10 @@ function Create() {
           "Event created, but your own availability couldn't be saved. Add it from the event page.",
         );
       }
-    } catch {
-      toast.error("Could not create event. Try again.");
+    } catch (err) {
+      console.error("Failed to create event:", err);
+      const message = err instanceof Error ? err.message : "Could not create event. Try again.";
+      toast.error(message);
       return;
     } finally {
       setSubmitting(false);
