@@ -35,8 +35,8 @@ function Home() {
             <span className="text-primary">Skip the group-chat chaos.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-            Create an event, share the code, and let your friends drop in their availability.
-            We'll pick the time that works.
+            Create an event, share the code, and let your friends drop in their availability. We'll
+            pick the time that works.
           </p>
         </section>
 

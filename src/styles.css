@@ -90,14 +90,17 @@
     border-color: var(--color-border);
   }
   body {
-    background: radial-gradient(1200px 600px at 10% -10%, oklch(0.94 0.06 60 / 0.7), transparent 60%),
+    background:
+      radial-gradient(1200px 600px at 10% -10%, oklch(0.94 0.06 60 / 0.7), transparent 60%),
       radial-gradient(900px 500px at 100% 0%, oklch(0.9 0.08 30 / 0.5), transparent 60%),
       var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     min-height: 100vh;
   }
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }

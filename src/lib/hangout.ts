@@ -54,14 +54,6 @@ export function timeStringToMinutes(value: string): number | null {
   return total > 1440 ? null : total;
 }
 
-/** Convert minutes since midnight back to a "HH:MM" string for <input type="time">. */
-export function minutesToTimeString(minutes: number): string {
-  const clamped = Math.max(0, Math.min(1440, minutes));
-  const h = Math.floor(clamped / 60);
-  const m = clamped % 60;
-  return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
-}
-
 export function durationToLabel(duration: number): string {
   if (duration === ALL_DAY_DURATION) return "All day";
   if (duration < 60) return `${duration}m`;

@@ -1,5 +1,7 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "meetup-maker",
+  "version": "0.1.0",
+  "description": "Meetly - a collaborative scheduling app for finding a time and place that works for everyone, built with TanStack Start and Supabase.",
   "private": true,
   "sideEffects": false,
   "type": "module",
